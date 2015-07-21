@@ -15,7 +15,7 @@
 // use this if you want to match all subfolders:
 // '<%= config.src %>/templates/pages/**/*.hbs'
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
@@ -68,28 +68,49 @@ module.exports = function(grunt) {
         options: {
           flatten: true,
           assets: '<%= config.dist %>/assets',
-          layout: '<%= config.src %>/templates/layouts/default.hbs',
+          layoutdir: '<%= config.src %>/layouts',
           data: '<%= config.src %>/data/*.{json,yml}',
-          partials: '<%= config.src %>/templates/partials/*.hbs'
+          partials: '<%= config.src %>/partials/*.html'
         },
         files: {
-          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
+          '<%= config.dist %>/': ['<%= config.src %>/pages/*.html']
         }
       }
     },
-
+    sass: {
+      dev: {
+        options: {
+          sourcemap: 'inline',
+          style: 'compressed',
+          update: true
+        },
+        files: {
+          'dist/assets/css/style.css': 'src/assets/scss/style.scss'
+        }
+      }
+    },
+    uglify: {
+      app: {
+        options: {
+          sourceMap: true
+        },
+        files: {
+          'dist/assets/js/script.js': [
+            'src/assets/js/vendor/jquery-1.11.3.min.js',
+            'src/assets/js/vendor/bootstrap.min.js',
+            'src/assets/js/vendor/modernizr-respond.min.js',
+            'src/assets/js/app.js',
+            'src/assets/js/plugins.js'
+          ]
+        }
+      }
+    },
     copy: {
-      bootstrap: {
+      images: {
         expand: true,
-        cwd: 'bower_components/bootstrap/dist/',
+        cwd: 'src/assets/images/',
         src: '**',
-        dest: '<%= config.dist %>/assets/'
-      },
-      theme: {
-        expand: true,
-        cwd: 'src/assets/',
-        src: '**',
-        dest: '<%= config.dist %>/assets/css/'
+        dest: 'dist/assets/img'
       }
     },
 
@@ -100,6 +121,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.registerTask('server', [
     'build',
@@ -110,6 +132,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
+    'sass',
+    'uglify',
     'assemble'
   ]);
 
