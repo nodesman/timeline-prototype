@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 
     watch: {
       assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+        files: ['src/**/*.html'],
         tasks: ['assemble']
       },
       livereload: {
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
           update: true
         },
         files: {
-          'dist/assets/css/style.css': 'src/assets/scss/style.scss'
+          'dist/assets/css/style.css': ['src/assets/scss/style.scss', 'src/assets/scss/jquery.datetimepicker.css']
         }
       }
     },
@@ -96,7 +96,9 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/assets/js/script.js': [
-            'src/assets/js/vendor/jquery-1.11.3.min.js',
+            'src/assets/js/vendor/jquery.js',
+            'src/assets/js/vendor/jquery-ui.min.js',
+            'src/assets/js/vendor/jquery.datetimepicker.js',
             'src/assets/js/vendor/bootstrap.min.js',
             'src/assets/js/vendor/modernizr-respond.min.js',
             'src/assets/js/app.js',
@@ -111,6 +113,12 @@ module.exports = function (grunt) {
         cwd: 'src/assets/images/',
         src: '**',
         dest: 'dist/assets/img'
+      },
+      pagejs: {
+        expand: true,
+        cwd: 'src/assets/js/pages/',
+        src: '**',
+        dest: 'dist/assets/js/pages/'
       }
     },
 

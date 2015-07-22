@@ -9,5 +9,9 @@
 <div id="page-content">
 {{body}}
 </div>
+
+{{#each scripts}}
+  <script src="assets/js/{{.}}"></script>
+{{/each}}
 </body>
 </html>
