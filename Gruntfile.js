@@ -29,6 +29,10 @@ module.exports = function (grunt) {
     },
 
     watch: {
+      sass: {
+        files: ['src/**/*.scss'],
+        tasks: ['sass:dev']
+      },
       assemble: {
         files: ['src/**/*.html'],
         tasks: ['assemble']
@@ -81,11 +85,10 @@ module.exports = function (grunt) {
       dev: {
         options: {
           sourcemap: 'inline',
-          style: 'compressed',
-          update: true
+          style: 'compressed'
         },
         files: {
-          'dist/assets/css/style.css': ['src/assets/scss/style.scss', 'src/assets/scss/jquery.datetimepicker.css']
+          'dist/assets/css/style.css': 'src/assets/scss/style.scss'
         }
       }
     },

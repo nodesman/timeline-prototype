@@ -1,0 +1,35 @@
+.manage-event {
+  .add-citation-form {
+    margin: 20px 50px;
+    .field {
+      margin: 20px 10px;
+    }
+  }
+  ul#sortable {
+    list-style: none;
+    .ui-icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .ui-state-default {
+      background: none transparent;
+      margin: 5px;
+      border: 0;
+    }
+    .hi.hi-remove {
+      float: right;
+      margin: 10px;
+    }
+
+    .info {
+      width: 800px;
+      display: inline-block;
+      vertical-align: middle;
+      p {
+        margin: 10px 0;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+}
