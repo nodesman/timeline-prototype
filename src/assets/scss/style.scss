@@ -6,13 +6,80 @@
 @import "jquery.datetimepicker";
 @import "jquery-ui.min";
 
-
-@import "pages/manage-event";
-
-
-
 html, body, #page-content {
   height: 100%;
+}
+
+@import "pages/manage-event";
+@import "pages/event";
+
+#main-container, #page-content {
+  height: 100%;
+}
+
+.ui-tabs {
+  border: 1px solid #dae7e8;
+  padding: 0 !important;
+  .ui-widget-content {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: rgb(59, 63, 64);
+  }
+}
+
+.ui-tabs-nav {
+  &.ui-widget-header {
+    background-image: none;
+    background-color: #fafcfc;
+    border: 0;
+    border-bottom: 1px solid #ebf2f2;
+    border-radius: 0;
+  }
+
+  .ui-state-default {
+    a {
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+    }
+  }
+
+  .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: transparent none;
+    border: 0;
+    padding: 3px 15px !important;
+    a {
+      color: rgb(70, 183, 191);
+    }
+  }
+
+  .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    background-color: #fff;
+    border: 1px solid #ebf2f2;
+    border-bottom: 0;
+    a {
+      color: rgb(59, 63, 64);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+
+
+  .nav-tabs {
+    li {
+      a {
+
+        border: 1px solid #eaedf1;
+      }
+    }
+  }
+
 }
 
 #page-content {

@@ -37,6 +37,10 @@ module.exports = function (grunt) {
         files: ['src/**/*.html'],
         tasks: ['assemble']
       },
+      js: {
+        files: ['src/**/*.js'],
+        tasks: ['uglify']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -102,6 +106,7 @@ module.exports = function (grunt) {
             'src/assets/js/vendor/jquery.js',
             'src/assets/js/vendor/jquery-ui.min.js',
             'src/assets/js/vendor/jquery.datetimepicker.js',
+            'src/assets/js/vendor/jquery.scrollabletab.js',
             'src/assets/js/vendor/bootstrap.min.js',
             'src/assets/js/vendor/modernizr-respond.min.js',
             'src/assets/js/app.js',
