@@ -1,0 +1,9 @@
+@import "bootstrap.min";
+@import "main";
+@import "plugins";
+@import "themes";
+@import "themes/modern";
+
+html, body, #page-content {
+  height: 100%;
+}
