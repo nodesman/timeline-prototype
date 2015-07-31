@@ -3,20 +3,38 @@
   padding: 5px;
   > .block {
     height: 100%;
+    margin-bottom: 0;
      > .block-title {
+       height: 40px;
      }
+
+    > .event-content {
+      height: calc(100% - 40px);
+    }
   }
 
   .stTabsMainWrapper, .tabs {
     height: 100%;
   }
 
+  .controls {
+    a {
+      color: #006dcc;
+    }
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
   .event-pane {
     height: 100%;
   }
   .citation-pane {
-    height: 100%;
-    $buttonGroup: 50px;
+    $tabsHeight: 40px;
+    .ui-tabs-nav {
+      height: $tabsHeight;
+    }
+    height: calc(100% - #{$tabsHeight});
+    $buttonGroup: 30px;
     .controls {
       display: block;
       height: $buttonGroup;
@@ -35,6 +53,16 @@
 
   .event-content {
     height: 100%;
+
+    .tabs {
+      .ui-tabs-nav {
+        height: 40px;
+      }
+
+      .tab-pane {
+        height: calc(100% - 40px);
+      }
+    }
   }
   .event-pane {
     .citations {
